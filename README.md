@@ -97,3 +97,4 @@ Enjoy!!!
 * https://medium.com/@rendiwithi/crud-rest-api-with-node-js-express-mysql-sequelize-in-2022-6870f90aa71e. CRUD Tutorial with NodeJS, Express and Sequelize.
 * https://answers.unity.com/questions/24640/how-do-i-return-a-value-from-a-coroutine.html. How to return a value from a coroutine.
 * https://gist.github.com/PurpleBooth/109311bb0361f32d87a2. A very complete template for README.md files.
+* https://copyprogramming.com/howto/unity-web-request-how-to-use-unitywebrequest-for-your-rest-api. How to use UnityWebRequest for your REST API.
