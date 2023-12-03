@@ -1,10 +1,11 @@
-# Unity CRUD consuming API with Express + Sequelize + MySQL
+# Unity CRUD consuming API with Express + Sequelize + MySQL and Auth Basic + Token Bearer
 
-It's just that: An example with Unity consuming an API with Express + Sequelize + MySQL
+It's just that: An example with Unity consuming an API with Express + Sequelize + MySQL. Auth Basic and Token Bearer is used for the Authentication.
 
 It's just a very raw example:
 * No validations at all.
 * No error checks.
+* Don't try to Login before Signup successfully because there is no validations.
 * To see the result of "Show bicycles" go to the Console.
 * Don't forget to enter a valid id to update/delete a bicycle.
 
@@ -25,7 +26,7 @@ You need a working environment with:
 The best option to start with this project is cloning it in your PC:
 
 ```
-git clone https://github.com/tcrurav/UnityWebRequestExpressSequelize.git
+git clone https://github.com/tcrurav/UnityWebRequestExpressSequelizeBasicAuthTokenBearer.git
 ```
 
 This project contains 2 different parts:
@@ -37,6 +38,8 @@ This project contains 2 different parts:
 You need a backend/db.config.js file with the data for the connection to your MySQL Server. So create a backend/.env file:
 
 ```
+JWT_SECRET=V3RY#1MP0RT@NT$3CR3T#
+
 DB_HOST=localhost
 DB_USER=root
 DB_NAME=db_bicycles_unity
@@ -52,14 +55,14 @@ You need a node.js working environment. The LTS is recommended: https://nodejs.o
 Once you have cloned the project install all dependencies:
 
 ```
-cd UnityWebRequestExpressSequelize/backend
+cd UnityWebRequestExpressSequelizeBasicAuthTokenBearer/backend
 npm install
 ```
 
 Finally start your backend.
 
 ```
-cd UnityWebRequestExpressSequelize/backend
+cd UnityWebRequestExpressSequelizeBasicAuthTokenBearer/backend
 npm start
 ```
 
@@ -70,6 +73,7 @@ Just open the `frontend` project with Unity Editor and run the scene `Menu`.
 Take into account that this project is just a very raw example:
 * No validations at all.
 * No error checks.
+* Don't try to Login before Signup successfully because there is no validations.
 * To see the result of "Show bicycles" go to the Console.
 * Don't forget to enter a valid id to update/delete a bicycle.
 

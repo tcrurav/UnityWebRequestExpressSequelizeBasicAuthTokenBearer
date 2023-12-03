@@ -5,8 +5,7 @@ using UnityEngine.Networking;
 
 public class BicycleService : MonoBehaviour
 {
-    private readonly string URL = "http://localhost:8080/api/bicycles";
-
+    private readonly string URL = MainManager.GetURL() + "/api/bicycles";
     public void GetBicycles()
     {
         StartCoroutine(RestGetAll());
@@ -29,7 +28,15 @@ public class BicycleService : MonoBehaviour
 
     IEnumerator RestGetAll()
     {
+        Debug.Log(URL);
         UnityWebRequest request = UnityWebRequest.Get(URL);
+
+        Debug.Log(MainManager.GetAccessToken());
+
+        request.SetRequestHeader("Authorization", "Bearer " + MainManager.GetAccessToken());
+        request.SetRequestHeader("Content-Type", "application/json");
+
+
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.ConnectionError)
@@ -61,6 +68,8 @@ public class BicycleService : MonoBehaviour
 
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+        request.SetRequestHeader("Authorization", "Bearer " + MainManager.GetAccessToken());
         request.SetRequestHeader("Content-Type", "application/json");
 
         yield return request.SendWebRequest();
@@ -88,6 +97,8 @@ public class BicycleService : MonoBehaviour
 
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+        request.SetRequestHeader("Authorization", "Bearer " + MainManager.GetAccessToken());
         request.SetRequestHeader("Content-Type", "application/json");
 
         yield return request.SendWebRequest();
@@ -110,6 +121,10 @@ public class BicycleService : MonoBehaviour
     {
         string URI = URL + "/" + id.ToString();
         UnityWebRequest request = UnityWebRequest.Delete(URI);
+
+        request.SetRequestHeader("Authorization", "Bearer " + MainManager.GetAccessToken());
+        request.SetRequestHeader("Content-Type", "application/json");
+
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.ConnectionError)
